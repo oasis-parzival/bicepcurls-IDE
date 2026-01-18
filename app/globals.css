@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyber-black: #0a0a0a;
+  --cyber-darkgray: #1a1a1a;
+  --cyber-gray: #2a2a2a;
+  --cyber-green: #00ff41;
+  --cyber-green-dim: #00cc33;
+  --cyber-amber: #ffb000;
+  --cyber-red: #ff0040;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background: var(--cyber-black);
+  color: var(--cyber-green);
+  overflow: hidden;
+  /* Prevent body scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CRT Scanline Effect */
+.scanline-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(0, 255, 65, 0.02) 50%,
+      rgba(0, 0, 0, 0.02) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-darkgray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-green-dim);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-green);
+}
+
+/* Selection */
+::selection {
+  background: var(--cyber-green);
+  color: var(--cyber-black);
+}
+
+/* Custom Utilities */
+.terminal-glow {
+  text-shadow: 0 0 5px var(--cyber-green);
+}
+
+.neon-border {
+  border: 1px solid var(--cyber-green);
+  box-shadow: 0 0 5px var(--cyber-green);
+}
+
+.cyber-button {
+  @apply px-4 py-2 bg-cyber-darkgray border border-cyber-green text-cyber-green font-mono;
+  @apply hover:bg-cyber-green hover:text-cyber-black transition-all duration-200;
+  @apply cursor-pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+  animation: slide 0.6s;
+}
+
+@keyframes slide {
+  to {
+    left: 100%;
+  }
+}
+
+.cyber-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cyber-button:disabled:hover {
+  background: var(--cyber-darkgray);
+  color: var(--cyber-green);
+}
+
+.cyber-input {
+  @apply bg-cyber-darkgray border border-cyber-gray text-cyber-green font-mono px-3 py-2;
+  @apply focus:outline-none focus:border-cyber-green;
+}
+
+/* Monaco Editor Override */
+.monaco-editor {
+  font-family: 'Fira Code', monospace !important;
+}
+
+.monaco-editor .margin {
+  background-color: var(--cyber-darkgray) !important;
+}
+
+/* Animations */
+@keyframes flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* Panel Resize Handle */
+.resize-handle {
+  @apply bg-cyber-gray hover:bg-cyber-green transition-colors cursor-col-resize;
+  width: 4px;
+}
+
+.resize-handle-horizontal {
+  @apply bg-cyber-gray hover:bg-cyber-green transition-colors cursor-row-resize;
+  height: 4px;
+}
+
+/* File Tree Styles */
+.file-tree-item {
+  @apply px-2 py-1 cursor-pointer hover:bg-cyber-darkgray transition-colors;
+  @apply flex items-center gap-2 text-sm;
+}
+
+.file-tree-item.active {
+  @apply bg-cyber-gray text-cyber-green;
+}
+
+.file-tree-item.folder::before {
+  content: '▸';
+  @apply inline-block w-4 transition-transform;
+}
+
+.file-tree-item.folder.open::before {
+  transform: rotate(90deg);
+}
+
+.file-tree-item.file::before {
+  content: '•';
+  @apply inline-block w-4;
+}
+
+/* Terminal Styles */
+.terminal-output {
+  @apply font-mono text-sm;
+}
+
+.terminal-output.input {
+  @apply text-cyber-green;
+}
+
+.terminal-output.output {
+  @apply text-gray-300;
+}
+
+.terminal-output.error {
+  @apply text-cyber-red;
+}
+
+/* Chat Bubble */
+.chat-bubble {
+  @apply p-3 rounded-lg mb-2 font-mono text-sm;
+}
+
+.chat-bubble.user {
+  @apply bg-cyber-gray text-cyber-green border border-cyber-green;
+}
+
+.chat-bubble.assistant {
+  @apply bg-cyber-darkgray text-gray-300 border border-cyber-gray;
+}
+
+/* Tab Styles */
+.editor-tab {
+  @apply px-4 py-2 bg-cyber-darkgray border-r border-cyber-gray cursor-pointer;
+  @apply hover:bg-cyber-gray transition-colors text-sm;
+}
+
+.editor-tab.active {
+  @apply bg-cyber-gray text-cyber-green border-b-2 border-cyber-green;
+}
+
+.editor-tab.dirty::after {
+  content: '●';
+  @apply ml-2 text-cyber-amber;
+}
+
+/* Loading Animation */
+.loading-dots::after {
+  content: '...';
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+
+  0%,
+  20% {
+    content: '.';
+  }
+
+  40% {
+    content: '..';
+  }
+
+  60%,
+  100% {
+    content: '...';
+  }
+}
+
+
+/* Normal Fullscreen Preview - keep this part for the Preview feature */
+html:fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
