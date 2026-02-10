@@ -20,7 +20,10 @@
 
 
 
+
+
 BicepCurls is a state-of-the-art, browser-based integrated development environment (IDE) designed for rapid web prototyping. It integrates an autonomous development agent, **Freeweight AI**, directly into the core workflow, enabling seamless neural-assisted coding.
+
 
 ## Technical Architecture
 
@@ -48,6 +51,7 @@ The UI implements a "Vanguard-Cyber" design language:
 - **Canvas Particle Network**: High-performance background animations using the HTML5 Canvas API.
 - **3D Tilt Geometry**: Perspective-based UI interactions driven by real-time mouse coordinate normalization.
 
+
 ## Tech Stack
 
 - **Framework**: Next.js (App Router)
@@ -56,6 +60,7 @@ The UI implements a "Vanguard-Cyber" design language:
 - **Editor**: @monaco-editor/react
 - **Icons**: Lucide React + Emoji integration
 - **CI/CD**: GitHub Actions / gh-pages automation
+
 
 ## Local Development
 
@@ -72,6 +77,7 @@ The UI implements a "Vanguard-Cyber" design language:
    npm run dev
    ```
 
+
 ## Deployment Logic
 
 The project is configured for **Static Site Generation (SSG)**.
@@ -83,6 +89,7 @@ The project is configured for **Static Site Generation (SSG)**.
   npm run deploy
   ```
   *(Triggers: `next build` -> `.nojekyll` generation -> `gh-pages` branch push)*
+
 
 ## 🦾 About Freeweight AI
 Freeweight is the resident agentic coding partner. It is designed to interpret project structures, write boilerplate, and debug complex layouts in real-time, effectively serving as a "muscle" for your digital brain.
