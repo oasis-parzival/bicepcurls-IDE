@@ -8,6 +8,25 @@
 <img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/6a9a0f2d-8616-43d8-a08a-e8a98589f4dc" />
 
 
+---
+
+## 🌐 The Interface 
+
+<p align="center">
+  <a href="https://bicepcurls-v1.netlify.app/">
+    <img src="https://raw.githubusercontent.com/Inter-Club/Logic-Masters-India/master/client/public/browser-mockup.png" width="100%" alt="BicepCurls IDE Preview">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://bicepcurls-v1.netlify.app/">
+    <img src="https://img.shields.io/badge/%EF%A7%BE%20LAUNCH%20BICEPCURLS%20IDE%20-%20#39FF14?style=for-the-badge&logoColor=black" alt="Launch Button" height="50">
+  </a>
+</p>
+
+---
+
+
 **[Launch BicepCurls IDE in Browser →](https://bicepcurls-v1.netlify.app/)**
 
 BicepCurls is a state-of-the-art, browser-based integrated development environment (IDE) designed for rapid web prototyping. It integrates an autonomous development agent, **Freeweight AI**, directly into the core workflow, enabling seamless neural-assisted coding.
