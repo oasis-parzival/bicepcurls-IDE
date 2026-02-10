@@ -13,10 +13,10 @@
 
 <p align="center">
   <a href="https://bicepcurls-v1.netlify.app/">
-    <img src="<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/22d395ca-fb45-4492-8b02-8242c4b1fb5f" />
-" alt="Launch Button" height="50">
+    <img src="https://github.com/user-attachments/assets/0e1cb535-26fa-4d3c-94ef-84e6776f0d3f" width="100%" alt="BicepCurls IDE Preview">
   </a>
 </p>
+
 
 
 
