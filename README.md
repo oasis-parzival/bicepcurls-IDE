@@ -8,6 +8,8 @@
 <img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/6a9a0f2d-8616-43d8-a08a-e8a98589f4dc" />
 
 
+**[Launch BicepCurls IDE in Browser →](https://bicepcurls-v1.netlify.app/)**
+
 BicepCurls is a state-of-the-art, browser-based integrated development environment (IDE) designed for rapid web prototyping. It integrates an autonomous development agent, **Freeweight AI**, directly into the core workflow, enabling seamless neural-assisted coding.
 
 ## Technical Architecture
