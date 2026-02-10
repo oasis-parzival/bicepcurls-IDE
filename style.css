@@ -1,0 +1,317 @@
+/* --- CSS Variables & Reset --- */
+:root {
+  --neon-green: #39ff14;
+  --neon-dim: rgba(57, 255, 20, 0.4);
+  --bg-black: #020202;
+  --bg-dark-overlay: rgba(5, 5, 5, 0.8);
+  --glass-border: rgba(57, 255, 20, 0.2);
+  --text-dim: #a0a0a0;
+  --font-stack: 'Courier New', Courier, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--neon-green);
+  font-family: var(--font-stack);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px; /* For 3D effects */
+}
+
+/* --- Background Effects --- */
+#cyber-particles {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.screen-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  /* Scanlines */
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  /* Vignette for depth */
+  box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
+}
+
+/* --- Navbar (Glassmorphism) --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 10;
+  background: rgba(5, 5, 5, 0.6); /* Semi-transparent black */
+  backdrop-filter: blur(5px);      /* Glass blur effect */
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 2px 20px rgba(57, 255, 20, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px var(--neon-dim);
+}
+.logo .bracket { color: var(--text-dim); }
+
+.status-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  border: 1px solid var(--glass-border);
+  padding: 5px 12px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.3);
+}
+
+.status-text.blink {
+  color: var(--neon-green);
+  font-weight: bold;
+  animation: rapid-blink 1s steps(2, start) infinite;
+}
+.icon-blink { animation: pulse-opacity 2s infinite; }
+
+
+/* --- Main Hero Section --- */
+.hero-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+  padding: 2rem;
+}
+
+/* The main box that will tilt on mousemove */
+.content-box {
+  text-align: left; /* Terminal style left align looks better now */
+  max-width: 700px;
+  width: 100%;
+  padding: 3rem;
+  
+  /* Cyber Container Styling */
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid var(--neon-green);
+  box-shadow: 
+    0 0 30px rgba(57, 255, 20, 0.15),
+    inset 0 0 20px rgba(57, 255, 20, 0.05);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d; /* Important for tilt */
+}
+
+/* Corner accents using pseudo-elements */
+.content-box::before, .content-box::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-color: var(--neon-green);
+  border-style: solid;
+}
+.content-box::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.content-box::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+/* --- H1 Glitch & Typewriter --- */
+.cyber-header-wrapper {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--neon-dim);
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+h1.glitch-header {
+  font-size: 3rem;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0 0 15px var(--neon-green);
+}
+
+/* The blinking cursor for typewriter */
+.cursor {
+  animation: rapid-blink 0.8s infinite;
+  margin-left: 2px;
+}
+
+/* --- Subtitle & Terminal Loader --- */
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.terminal-loader {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  border-left: 2px solid var(--neon-dim);
+  padding-left: 15px;
+  opacity: 0.8;
+}
+
+.terminal-line { margin-bottom: 5px; }
+.active-line { 
+  color: var(--neon-green); 
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* --- Scroll Indicator --- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--neon-dim);
+    gap: 5px;
+    animation: bounce 2s infinite;
+}
+
+
+/* --- Footer --- */
+.footer {
+  z-index: 10;
+  background: rgba(2, 2, 2, 0.9);
+  border-top: 1px solid var(--neon-dim);
+  padding: 1rem 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer p { font-size: 0.9rem; color: var(--text-dim); }
+.heart-beat { color: #ff3939; animation: heartbeat 1.5s infinite; text-shadow: 0 0 10px red;}
+
+/* --- Social Buttons (Revamped) --- */
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-btn {
+  text-decoration: none;
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+  background: rgba(0,0,0,0.5);
+  z-index: 1; /* For the ::before pseudo element */
+}
+
+/* The "fill" effect on hover */
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--neon-green);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.social-btn:hover {
+  color: var(--bg-black);
+  box-shadow: 0 0 25px var(--neon-green);
+  padding-left: 20px; /* Subtle shift right */
+}
+
+.social-btn:hover::before { left: 0; }
+
+
+/* ============================
+   Animations Keyframes
+============================ */
+/* Standard Blink */
+@keyframes rapid-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+/* Heartbeat */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+}
+/* Subtle opacity pulse */
+@keyframes pulse-opacity {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+/* Scroll Bounce */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-10px);}
+	60% {transform: translateY(-5px);}
+}
+
+
+/* Entrance Animations */
+.slide-in-top { animation: slideInDown 0.8s ease-out forwards; }
+.slide-in-bottom { animation: slideInUp 0.8s ease-out forwards; }
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+.delay-1 { animation-delay: 0.8s; }
+.delay-2 { animation-delay: 1.4s; }
+.delay-3 { animation-delay: 2.0s; }
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content { flex-direction: column; gap: 1rem; text-align: center;}
+    h1.glitch-header { font-size: 2rem; }
+    .content-box { padding: 2rem 1.5rem; }
+}
