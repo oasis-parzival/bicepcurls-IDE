@@ -4,6 +4,10 @@
 [![Next.js](https://img.shields.io/badge/Framework-Next.js%2015-black)](https://nextjs.org/)
 [![Monaco Editor](https://img.shields.io/badge/Editor-Monaco-blue)](https://microsoft.github.io/monaco-editor/)
 
+
+<img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/6a9a0f2d-8616-43d8-a08a-e8a98589f4dc" />
+
+
 BicepCurls is a state-of-the-art, browser-based integrated development environment (IDE) designed for rapid web prototyping. It integrates an autonomous development agent, **Freeweight AI**, directly into the core workflow, enabling seamless neural-assisted coding.
 
 ## Technical Architecture
