@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://bicepcurls-v1.netlify.app/">
-    <img src="https://github.com/user-attachments/assets/0e1cb535-26fa-4d3c-94ef-84e6776f0d3f" width="100%" alt="BicepCurls IDE Preview">
+    <img src="https://github.com/user-attachments/assets/14f318e4-2a98-4ead-a4ec-60f98950077e" width="100%" alt="BicepCurls IDE Preview">
   </a>
 </p>
 
