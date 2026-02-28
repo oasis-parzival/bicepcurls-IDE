@@ -6,6 +6,7 @@
 
 
 
+
 <p align="center">
   <a href="https://oasis-parzival.github.io/BicepCurls-IDE/">
     <img src="https://github.com/user-attachments/assets/5f27c9cd-458f-4569-a5c1-b587b0baf839" width="100%" alt="BicepCurls IDE Preview">
@@ -14,7 +15,7 @@
 
 <p align="center">
   <a href="https://bicepcurls-v1.netlify.app/">
-    <img src="https://github.com/user-attachments/assets/336de9e9-3179-4f6f-ba4f-f92f31f05ebb" alt="BicepCurls IDE Preview">
+    <img src="https://github.com/user-attachments/assets/c3b48bec-b32b-4b85-b814-20a3bdd66e91" alt="BicepCurls IDE Preview">
   </a>
 </p>
 
