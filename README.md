@@ -6,7 +6,7 @@
 
 <img src="(images/GIF.gif" alt="Alt text" width="300" height="200"/>
 
-![BicepCurls-IDE](images/GIF.gif)
+![BicepCurls-IDE](Images/GIF.gif)
 
 
 <p align="center">
