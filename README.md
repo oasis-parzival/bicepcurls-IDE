@@ -4,9 +4,6 @@
 [![Next.js](https://img.shields.io/badge/Framework-Next.js%2015-black)](https://nextjs.org/)
 [![Monaco Editor](https://img.shields.io/badge/Editor-Monaco-blue)](https://microsoft.github.io/monaco-editor/)
 
-<img src="(images/GIF.gif" alt="Alt text" width="300" height="200"/>
-
-![BicepCurls-IDE](Images/GIF.gif)
 
 
 <p align="center">
