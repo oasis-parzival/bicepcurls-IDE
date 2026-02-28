@@ -5,6 +5,7 @@
 [![Monaco Editor](https://img.shields.io/badge/Editor-Monaco-blue)](https://microsoft.github.io/monaco-editor/)
 
 
+![Alt text for the GIF](images/GIF.mp4)
 
 
 <p align="center">
