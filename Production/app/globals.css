@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   BICEPCURLS IDE — VS Code-style Global Theme
+   ============================================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* === CSS Variables === */
+:root {
+  --vsc-bg:          #1e1e1e;
+  --vsc-sidebar:     #252526;
+  --vsc-tabbar:      #2d2d2d;
+  --vsc-activitybar: #333333;
+  --vsc-border:      #3e3e42;
+  --vsc-statusbar:   #007acc;
+  --vsc-accent:      #0e639c;
+  --vsc-text:        #cccccc;
+  --vsc-textDim:     #858585;
+  --vsc-highlight:   #2a2d2e;
+  --vsc-selection:   #37373d;
+  --vsc-titlebar:    #3c3c3c;
+  --vsc-input:       #3c3c3c;
+  --vsc-green:       #4ec9b0;
+  --vsc-blue:        #569cd6;
+  --vsc-yellow:      #dcdcaa;
+  --vsc-orange:      #ce9178;
+  --vsc-red:         #f44747;
+  --vsc-purple:      #c586c0;
+}
+
+/* === Base Reset === */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--vsc-bg);
+  color: var(--vsc-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+}
+
+/* === Custom Scrollbars === */
+::-webkit-scrollbar            { width: 6px; height: 6px; }
+::-webkit-scrollbar-track      { background: transparent; }
+::-webkit-scrollbar-thumb      { background: #424242; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: #5a5a5a; }
+::-webkit-scrollbar-corner     { background: transparent; }
+
+/* === Text Selection === */
+::selection { background: #094771; color: #ffffff; }
+
+/* =============================================================
+   ACTIVITY BAR
+   ============================================================= */
+.activity-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #858585;
+  position: relative;
+  transition: color 0.1s ease;
+  border: none;
+  background: none;
+  outline: none;
+}
+.activity-icon:hover { color: #cccccc; }
+.activity-icon.active { color: #cccccc; }
+.activity-icon.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #cccccc;
+  border-radius: 0 1px 1px 0;
+}
+
+/* =============================================================
+   SIDEBAR / FILE EXPLORER
+   ============================================================= */
+.sidebar-section-title {
+  padding: 8px 8px 4px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #bbbbbb;
+  text-transform: uppercase;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+/* =============================================================
+   FILE TREE
+   ============================================================= */
+.file-tree-item {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #cccccc;
+  padding-right: 8px;
+  white-space: nowrap;
+  position: relative;
+  user-select: none;
+  outline: none;
+  transition: background 0.05s;
+}
+.file-tree-item:hover  { background: #2a2d2e; }
+.file-tree-item.active { background: #37373d; color: #ffffff; }
+
+/* =============================================================
+   EDITOR TABS
+   ============================================================= */
+.editor-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px 0 14px;
+  font-size: 13px;
+  color: #969696;
+  background: #2d2d2d;
+  border-right: 1px solid #3e3e42;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 100px;
+  max-width: 180px;
+  position: relative;
+  height: 35px;
+  flex-shrink: 0;
+  transition: color 0.1s, background 0.1s;
+}
+.editor-tab:hover   { color: #cccccc; background: #2b2b2b; }
+.editor-tab.active  { background: #1e1e1e; color: #ffffff; }
+.editor-tab.active::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: #007acc;
+}
+
+/* Tab close button */
+.tab-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.1s, background 0.1s;
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 1;
+  color: #858585;
+  cursor: pointer;
+  flex: none;
+}
+.editor-tab:hover .tab-close-btn,
+.editor-tab.active .tab-close-btn { opacity: 1; }
+.tab-close-btn:hover { background: rgba(255,255,255,0.1); color: #cccccc; }
+
+/* Dirty dot */
+.editor-tab.dirty .dirty-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cccccc;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* =============================================================
+   PANEL (Terminal, Output, etc.)
+   ============================================================= */
+.panel-tab {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #969696;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.1s;
+  white-space: nowrap;
+}
+.panel-tab.active       { color: #cccccc; border-bottom-color: #cccccc; }
+.panel-tab:hover:not(.active) { color: #cccccc; }
+
+/* =============================================================
+   TERMINAL 
+   ============================================================= */
+.terminal-output {
+  font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #cccccc;
+}
+.terminal-output.input  { color: #4ec9b0; }
+.terminal-output.error  { color: #f44747; }
+.terminal-output.output { color: #cccccc; }
+
+/* =============================================================
+   AI CHAT (Copilot-style)
+   ============================================================= */
+.chat-bubble {
+  border-radius: 3px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.chat-bubble.user {
+  background: #2a2d2e;
+  color: #cccccc;
+  border-left: 2px solid #007acc;
+}
+.chat-bubble.assistant {
+  background: transparent;
+  color: #cccccc;
+  border-left: 2px solid #4ec9b0;
+  padding-left: 10px;
+}
+
+/* =============================================================
+   BUTTONS
+   ============================================================= */
+.vsc-btn {
+  padding: 4px 10px;
+  background: transparent;
+  color: #cccccc;
+  border: 1px solid #3e3e42;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.1s, border-color 0.1s;
+  white-space: nowrap;
+  outline: none;
+}
+.vsc-btn:hover    { background: #3e3e42; border-color: #5e5e5e; }
+.vsc-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.vsc-btn-primary {
+  background: #0e639c;
+  border-color: #0e639c;
+  color: #ffffff;
+}
+.vsc-btn-primary:hover { background: #1177bb; border-color: #1177bb; }
+
+.vsc-btn-icon {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* =============================================================
+   INPUTS
+   ============================================================= */
+.vsc-input {
+  background: #3c3c3c;
+  border: 1px solid transparent;
+  color: #cccccc;
+  font-size: 13px;
+  padding: 5px 8px;
+  outline: none;
+  font-family: inherit;
+  border-radius: 2px;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+.vsc-input:focus       { border-color: #007acc; }
+.vsc-input::placeholder{ color: #858585; }
+
+/* =============================================================
+   LOADING ANIMATION
+   ============================================================= */
+.loading-dots::after {
+  content: '';
+  animation: loading-dots 1.4s infinite;
+}
+@keyframes loading-dots {
+  0%,20%  { content: '.'; }
+  40%,60% { content: '..'; }
+  80%,100%{ content: '...'; }
+}
+
+/* =============================================================
+   MONACO EDITOR OVERRIDES
+   ============================================================= */
+.monaco-editor { font-family: 'JetBrains Mono', Consolas, monospace !important; }
+
+/* =============================================================
+   STATUS BAR
+   ============================================================= */
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: background 0.1s;
+}
+.status-item:hover { background: rgba(255,255,255,0.12); }
+
+/* =============================================================
+   BREADCRUMB
+   ============================================================= */
+.breadcrumb-sep { color: #858585; margin: 0 2px; }
+
+/* =============================================================
+   FULLSCREEN OVERRIDES
+   ============================================================= */
+html:fullscreen, :fullscreen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
