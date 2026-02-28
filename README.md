@@ -5,15 +5,16 @@
 [![Monaco Editor](https://img.shields.io/badge/Editor-Monaco-blue)](https://microsoft.github.io/monaco-editor/)
 
 
+
 <p align="center">
   <a href="https://oasis-parzival.github.io/BicepCurls-IDE/">
-    <img src="https://github.com/user-attachments/assets/6a9a0f2d-8616-43d8-a08a-e8a98589f4dc" width="100%" alt="BicepCurls IDE Preview">
+    <img src="https://github.com/user-attachments/assets/5f27c9cd-458f-4569-a5c1-b587b0baf839" width="100%" alt="BicepCurls IDE Preview">
   </a>
 </p>
 
 <p align="center">
   <a href="https://bicepcurls-v1.netlify.app/">
-    <img src="https://github.com/user-attachments/assets/14f318e4-2a98-4ead-a4ec-60f98950077e" width="100%" alt="BicepCurls IDE Preview">
+    <img src="https://github.com/user-attachments/assets/336de9e9-3179-4f6f-ba4f-f92f31f05ebb" alt="BicepCurls IDE Preview">
   </a>
 </p>
 
