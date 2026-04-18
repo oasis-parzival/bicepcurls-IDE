@@ -4,27 +4,7 @@
 [![Next.js](https://img.shields.io/badge/Framework-Next.js%2015-black)](https://nextjs.org/)
 [![Monaco Editor](https://img.shields.io/badge/Editor-Monaco-blue)](https://microsoft.github.io/monaco-editor/)
 
-
-
-<p align="center">
-  <a href="https://oasis-parzival.github.io/BicepCurls-IDE/">
-    <img src="https://github.com/user-attachments/assets/5f27c9cd-458f-4569-a5c1-b587b0baf839" width="100%" alt="BicepCurls IDE Preview">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://bicepcurls-v1.netlify.app/">
-    <img src="https://github.com/user-attachments/assets/c3b48bec-b32b-4b85-b814-20a3bdd66e91" alt="BicepCurls IDE Preview">
-  </a>
-</p>
-
-
-
-
-
-
 BicepCurls is a state-of-the-art, browser-based integrated development environment (IDE) designed for rapid web prototyping. It integrates an autonomous development agent, **Freeweight AI**, directly into the core workflow, enabling seamless neural-assisted coding.
-
 
 ## Technical Architecture
 
@@ -52,7 +32,6 @@ The UI implements a "Vanguard-Cyber" design language:
 - **Canvas Particle Network**: High-performance background animations using the HTML5 Canvas API.
 - **3D Tilt Geometry**: Perspective-based UI interactions driven by real-time mouse coordinate normalization.
 
-
 ## Tech Stack
 
 - **Framework**: Next.js (App Router)
@@ -61,7 +40,6 @@ The UI implements a "Vanguard-Cyber" design language:
 - **Editor**: @monaco-editor/react
 - **Icons**: Lucide React + Emoji integration
 - **CI/CD**: GitHub Actions / gh-pages automation
-
 
 ## Local Development
 
@@ -78,7 +56,6 @@ The UI implements a "Vanguard-Cyber" design language:
    npm run dev
    ```
 
-
 ## Deployment Logic
 
 The project is configured for **Static Site Generation (SSG)**.
@@ -90,7 +67,6 @@ The project is configured for **Static Site Generation (SSG)**.
   npm run deploy
   ```
   *(Triggers: `next build` -> `.nojekyll` generation -> `gh-pages` branch push)*
-
 
 ## 🦾 About Freeweight AI
 Freeweight is the resident agentic coding partner. It is designed to interpret project structures, write boilerplate, and debug complex layouts in real-time, effectively serving as a "muscle" for your digital brain.
